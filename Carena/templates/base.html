@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <link rel="stylesheet" href="{% static 'estilos.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feria de Ciencias</title>
+</head>
+<body>
+    <div class="d-flex flex-column min-vh-100">
+        <header class="container-fluid bg-primary text-white text-center p-3">
+            <h4>Feria de Ciencias</h4>
+        </header>
+        <main class="flex-fill">
+            {% block content %}
+            {% endblock %}
+        </main>
+        <footer class="container-fluid bg-primary text-center p-3 text-white">
+            <h6>Instituto Superior Dr. Carlos María Carena | 2024</h6>
+        </footer>
+    </div>
+</body>
+</html>
