@@ -1,0 +1,14 @@
+# Entorno virtual
+venv/
+
+# Archivos de configuración locales
+.env
+
+# Archivos compilados de Python
+*.pyc
+__pycache__/
+
+# Configuraciones del IDE (opcional)
+.vscode/
+.idea/
+*.swp
