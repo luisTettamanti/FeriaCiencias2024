@@ -5,6 +5,7 @@ class Proyecto(models.Model):
     titulo = models.CharField(max_length=50)
     descripcion = models.TextField()
     imagen = models.CharField(max_length=50)
+    link = models.CharField(max_length=50, default='', null=True)
 
     def __str__(self):
         return self.nombre
@@ -15,6 +16,7 @@ class Seccion(models.Model):
     descripcion = models.TextField()
     imagen = models.CharField(max_length=50)
     idProyecto = models.ForeignKey(Proyecto, on_delete=models.PROTECT)
+    link = models.CharField(max_length=50, default='', null=True)
 
     def __str__(self):
         return self.nombre
@@ -24,9 +26,10 @@ class Articulo(models.Model):
     titulo = models.CharField(max_length=50)
     descripcion = models.TextField()
     idSeccion = models.ForeignKey(Seccion, on_delete=models.PROTECT)
+    link = models.CharField(max_length=50, default='', null=True)
 
     def __str__(self):
-        return self.nombre
+        return self.titulo
 
 
 class ArtImagen(models.Model):
