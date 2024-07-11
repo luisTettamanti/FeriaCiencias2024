@@ -12,14 +12,33 @@
 </head>
 <body>
     <div class="d-flex flex-column min-vh-100">
-        <header class="container-fluid bg-primary text-white text-center p-3">
+        <header class="container-fluid bg-dark text-white text-center p-10" style="padding: 2rem;">
             <h4>Feria de Ciencias</h4>
         </header>
+
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top mb-4">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/index">Feria</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav">
+                        {% for p in proyectos %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ p.link }}/{{ p.id }}">{{ p.nombre }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
         <main class="flex-fill">
             {% block content %}
             {% endblock %}
         </main>
-        <footer class="container-fluid bg-primary text-center p-3 text-white">
+        <footer class="container-fluid bg-dark text-center p-3 text-white mt-4">
             <h6>Instituto Superior Dr. Carlos María Carena | 2024</h6>
         </footer>
     </div>

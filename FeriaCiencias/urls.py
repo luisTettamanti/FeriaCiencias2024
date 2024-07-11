@@ -6,5 +6,6 @@ urlpatterns = [
     path('index/', views.index, name='index'),
     path('', views.index, name='index'),
 
-    path('IA/comopensar/', views.comopensar, name='comopensar'),
+    path('ia/proyecto/<int:pk>', views.proyecto, name='proyecto'),
+    path('ia/seccion/<int:pk>/', views.seccion, name='seccion'),
 ]

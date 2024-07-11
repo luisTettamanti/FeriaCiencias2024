@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <div id="contenido" class="container">
+        <div class="row">
+            <div class="d-none d-lg-block col-lg-2 p-3" style="background-color: lightgray">
+                {% for s in secciones %}
+                    <p><a class="text-decoration-none text-dark" href="{{ s.link }}/{{ s.id }}">{{ s.titulo }}</a></p>
+                {%  endfor %}
+            </div>
+            <div class="col-md-5">
+                <h5 class="bg-primary"><a class="text-white text-decoration-none" href="{{ proyecto.link }}/{{ proyecto.id }}">{{ proyecto.nombre }}</a></h5>
+                <h3 class="text-primary pb-2">{{ proyecto.titulo }}</h3>
+                {{ proyecto.descripcion|safe }}
+            </div>
+            <div class="col-md-5" id="imagen"
+                 style="background-image: url('{% static proyecto.imagen %}');
+                         background-position: center;
+                         height: 300px;
+                         background-size: contain;
+                         background-repeat: no-repeat">
+            </div>
+        </div>
+        <div class="row">
+            <div class="d-block d-lg-none col-12 pt-3 text-secondary">
+                <ul class="lista-flechas">
+                {% for s in secciones %}
+                    <li><a class="text-decoration-none text-secondary" href="{{ s.link }}/{{ s.id }}">{{ s.titulo }}</a></li>
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
