@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anarquía Gin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Forum:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<style>
+    body {
+    font-family: 'Forum', sans-serif;
+    background-image: url('{% static proyecto.imagen %}');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .centered-bold-uppercase {
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: 'Forum', sans-serif; 
+  }
+</style>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top mb-5">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="/anarquiagin/proyectoanarquia/3">Anarquía Gin - Home</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar1">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse " id="collapsibleNavbar1">
+              <ul class="navbar-nav ms-auto">
+                  {% for s in secciones %}
+                      {% if s.link == "/anarquiagin/seccionanarquia" %}
+                      <li class="nav-item">
+                          <a class="nav-link" href="{{ s.link }}/{{ s.id }}">{{ s.titulo }}</a>
+                      </li>
+                      {% endif %}
+                  {% endfor %}
+              </ul>
+          </div>
+      </div>
+    </nav>
+    
+{% endblock %}
