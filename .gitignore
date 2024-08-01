@@ -14,4 +14,5 @@ __pycache__/
 .idea/
 *.swp
 
-lib/
+# Base de Datos
+db.sqlite3

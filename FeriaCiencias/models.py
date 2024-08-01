@@ -1,6 +1,7 @@
 from django.db import models
 
 class Proyecto(models.Model):
+    id = models.IntegerField(primary_key=True)
     nombre = models.CharField(max_length=50)
     titulo = models.CharField(max_length=100)
     descripcion = models.TextField()
@@ -12,6 +13,7 @@ class Proyecto(models.Model):
 
 
 class Seccion(models.Model):
+    id = models.IntegerField(primary_key=True)
     titulo = models.CharField(max_length=100)
     descripcion = models.TextField()
     imagen = models.CharField(max_length=100)
@@ -23,6 +25,7 @@ class Seccion(models.Model):
 
 
 class Articulo(models.Model):
+    id = models.IntegerField(primary_key=True)
     titulo = models.CharField(max_length=100)
     descripcion = models.TextField()
     idSeccion = models.ForeignKey(Seccion, on_delete=models.PROTECT)
@@ -33,6 +36,7 @@ class Articulo(models.Model):
 
 
 class ArtImagen(models.Model):
+    id = models.IntegerField(primary_key=True)
     imagen = models.CharField(max_length=100)
     idArticulo = models.ForeignKey(Articulo, related_name='imagenes', on_delete=models.PROTECT)
 
