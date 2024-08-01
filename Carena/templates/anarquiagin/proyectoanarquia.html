@@ -1,39 +1,80 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
+
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Anarquía Gin</title>
+  <!-- Cargar la tipografía 'Forum' desde Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Forum:wght@400;700&display=swap" rel="stylesheet">
-</head>
-
-<style>
-    body {
-    font-family: 'Forum', sans-serif;
-    background-image: url('{% static proyecto.imagen %}');
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    margin: 0;
-    padding: 0;
-  }
   
-  .centered-bold-uppercase {
-    text-align: center;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-family: 'Forum', sans-serif; 
-  }
-</style>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top mb-5">
+  <style>
+      body {
+        font-family: 'Forum', sans-serif; /* Aplicar la tipografía 'Forum' al cuerpo de la página */
+        margin: 0; /* Eliminar márgenes del cuerpo */
+        padding: 0; /* Eliminar padding del cuerpo */
+        overflow-x: hidden; /* Prevenir scroll horizontal */
+      }
+
+      .hero-section {
+        background-image: url('{% static "img/AnarquiaGin/AnarquiaHome.jpg" %}'); /* Ruta a la imagen de fondo */
+        background-position: center; /* Centrar la imagen de fondo */
+        background-size: cover; /* Asegurar que la imagen cubra todo el contenedor */
+        background-repeat: no-repeat; /* Evitar que la imagen se repita */
+        height: 100vh; /* Altura del viewport */
+        width: 100vw; /* Ancho del viewport */
+        display: flex; /* Usar flexbox para centrar contenido */
+        justify-content: center; /* Centrar contenido horizontalmente */
+        align-items: center; /* Centrar contenido verticalmente */
+      }
+
+      .navbar-custom {
+        font-family: 'Forum', sans-serif; /* Aplicar la tipografía 'Forum' a la barra de navegación */
+        margin: 0; /* Eliminar márgenes */
+        padding: 0; /* Eliminar padding */
+        width: 100%; /* Asegurar que la barra de navegación ocupe todo el ancho */
+      }
+
+      .navbar-nav {
+        margin: 0; /* Eliminar márgenes de los elementos del menú */
+        padding: 0; /* Eliminar padding de los elementos del menú */
+      }
+
+      .navbar-brand, .nav-item, .nav-link {
+        margin: 0; /* Eliminar márgenes de la marca, elementos y enlaces del menú */
+        padding: 0.5rem 1rem; /* Ajustar padding para un mejor espaciado */
+      }
+
+      .ms-auto {
+        margin-left: auto !important; /* Asegurar que los elementos de la derecha estén alineados correctamente */
+      }
+
+      /* Media Queries */
+      @media (max-width: 768px) {
+        .hero-section {
+          height: 80vh; /* Ajustar la altura para pantallas más pequeñas */
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-section {
+          height: 60vh; /* Ajustar aún más para pantallas muy pequeñas */
+        }
+      }
+    </style>
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top mb-0 navbar-custom">
       <div class="container-fluid">
           <a class="navbar-brand" href="/anarquiagin/proyectoanarquia/3">Anarquía Gin - Home</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar1">
               <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse " id="collapsibleNavbar1">
+          <div class="collapse navbar-collapse" id="collapsibleNavbar1">
               <ul class="navbar-nav ms-auto">
                   {% for s in secciones %}
                       {% if s.link == "/anarquiagin/seccionanarquia" %}
@@ -46,5 +87,11 @@
           </div>
       </div>
     </nav>
-    
+
+    <!-- Sección de la imagen de fondo -->
+    <div class="hero-section"></div>
+
+</body>
+</html>
+
 {% endblock %}
