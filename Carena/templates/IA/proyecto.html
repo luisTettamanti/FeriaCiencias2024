@@ -3,16 +3,31 @@
 {% block content %}
     <div id="contenido" class="container">
         <div class="row">
-            <div class="d-none d-lg-block col-lg-2 p-3" style="background-color: lightgray">
+
+            <!-- AQUI SE CREA EL MENU PARA IR A SECCIONES -->
+            <!-- Si el menu es menor a lg no se crearan dos columnas, tiene fondo gris -->
+            <!-- Por cada seccion itinera y saca los datos para el link y el nombre para mostrar -->
+            <div class="d-none d-lg-block col-lg-2 p-3" style="background-color: lightgray"> 
                 {% for s in secciones %}
                     <p><a class="text-decoration-none text-dark" href="{{ s.link }}/{{ s.id }}">{{ s.titulo }}</a></p>
                 {%  endfor %}
+
             </div>
+
+            <!-- AQUI SE CREA EL BODY -->
+            <!-- Se coloca el link del proyecto con fondo azul y texto blanco -->
+            <!-- Se coloca en titulo del proyecto -->
+            <!-- Se coloca la descripcion del proyecto |safe es para colocar el html tal y como esta -->
             <div class="col-md-5">
                 <h5 class="bg-primary"><a class="text-white text-decoration-none" href="{{ proyecto.link }}/{{ proyecto.id }}">{{ proyecto.nombre }}</a></h5>
                 <h3 class="text-primary pb-2">{{ proyecto.titulo }}</h3>
                 {{ proyecto.descripcion|safe }}
             </div>
+
+            <!-- AQUI SE colocan las imagenes -->
+            <!-- Se coloca el link del proyecto con fondo azul y texto blanco -->
+            <!-- Se coloca la imagen -->
+            <!-- Se centra, se le establece altura de 300, se escala para que no se recorte y no permite que se repita -->
             <div class="col-md-5" id="imagen"
                  style="background-image: url('{% static proyecto.imagen %}');
                          background-position: center;
@@ -20,8 +35,16 @@
                          background-size: contain;
                          background-repeat: no-repeat">
             </div>
+
         </div>
+
         <div class="row">
+
+            <!-- AQUI SE CREA EL MENU PARA IR A SECCIONES PANTALLAS CHICAS -->
+            <!-- Se crea en todos los tamaños de pantalla menos en dispositivos lg o superiores -->
+            <!-- Este ocupara las 12 regillas de boostrap -->
+            <!-- Se define una lista desordenada -->
+            <!-- Se crea el bucle anterior para volver a recorrer las secciones de nuestro proyecto -->
             <div class="d-block d-lg-none col-12 pt-3 text-secondary">
                 <ul class="lista-flechas">
                 {% for s in secciones %}

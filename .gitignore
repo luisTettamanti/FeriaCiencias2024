@@ -1,5 +1,6 @@
 # Entorno virtual
 venv/
+pyvenv.cfg
 
 # Archivos de configuración locales
 .env
@@ -12,3 +13,5 @@ __pycache__/
 .vscode/
 .idea/
 *.swp
+
+lib/

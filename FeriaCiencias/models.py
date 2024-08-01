@@ -34,7 +34,7 @@ class Articulo(models.Model):
 
 class ArtImagen(models.Model):
     imagen = models.CharField(max_length=100)
-    idArticulo = models.ForeignKey(Articulo, on_delete=models.PROTECT)
+    idArticulo = models.ForeignKey(Articulo, related_name='imagenes', on_delete=models.PROTECT)
 
     def __str__(self):
         return self.imagen
