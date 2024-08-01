@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <!-- Encabezado con la imagen a lo largo pero con menos altura -->
+    <div class="header-image mb-4 text-center">
+        <img src="{% static 'img/encabezado.png' %}" alt="Encabezado HTML" class="img-fluid" style="width: 80%; height: 150px; object-fit: cover ;">
+    </div>
+
+    <div id="contenido" class="container mt-4 p-4" style="background-color: rgba(255, 255, 255, 0.8); border-radius: 10px;">
+        <div class="row">
+            <!-- Contenido principal -->
+            <main class="col-lg-8">
+                <section>
+                    <div class="card mb-4 shadow-lg border-0" style="border-radius: 10px;">
+                        <header class="card-header bg-success text-white" style="border-radius: 10px 10px 0 0;">
+                            <h5 class="my-0">
+                                <a class="text-white text-decoration-none" href="{{ proyecto.link }}/{{ proyecto.id }}">
+                                    {{ proyecto.nombre }}
+                                </a>
+                            </h5>
+                        </header>
+                        <article class="card-body">
+                            <h3 class="card-title">{{ proyecto.titulo }}</h3>
+                            <p class="card-text">{{ proyecto.descripcion|safe }}</p>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- Imagen debajo de las secciones como fondo -->
+                <section>
+                    <div id="imagen" class="rounded shadow-lg mb-4" style="background-image: url('{% static proyecto.imagen %}'); background-position: center; height: 300px; background-size: contain; background-repeat: no-repeat; border-radius: 10px;">
+                    </div>
+                </section>
+            </main>
+
+            <!-- Secciones al costado del contenido principal -->
+            <aside class="col-lg-4">
+
+                <div class="list-group">
+                    {% for s in secciones %}
+                        <a href="{{ s.link }}/{{ s.id }}" class="list-group-item list-group-item-action">
+                            {{ s.titulo }}
+                        </a>
+                    {% endfor %}
+                </div>
+            </aside>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+
+
+

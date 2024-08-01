@@ -1,0 +1,73 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    box-sizing: border-box;
+    }
+
+a:hover {
+    font-weight: bold;
+}
+
+ul.lista-flechas {
+    list-style-type: none; /* Eliminar los bullets predeterminados */
+    padding: 0;
+}
+ul.lista-flechas li {
+    position: relative; /* Necesario para posicionar el pseudo-elemento */
+    padding-left: 20px; /* Espacio para el nuevo bullet */
+}
+ul.lista-flechas li::before {
+    content: '\27BD'; /* Código Unicode para la flecha hacia la derecha */
+    position: absolute;
+    left: 0;
+<<<<<<< HEAD
+    color :  rgb ( 71 , 112 , 5 ); /* Color de la flecha */
+    background-color: #f8f9fa; /* Fondo claro para mayor contraste */
+=======
+    color: rgb(71, 112, 5); /* Color de la flecha */
+>>>>>>> cc3a26db30ee3be84e55d842f53b3a8ad710962b
+}
+
+.navbar {
+    background-color: #343a40; /* Un gris oscuro para el navbar */
+}
+
+.navbar-brand, .nav-link {
+    color: #ffffff !important; /* Texto blanco para el navbar */
+}
+
+.sidebar {
+    background-color: #e9ecef; /* Fondo claro para el sidebar */
+}
+
+.sidebar a {
+    color: #007bff; /* Color azul para los enlaces en el sidebar */
+}
+
+.content-area {
+    background-color: #ffffff; /* Fondo blanco para el contenido */
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    padding: 15px;
+}
+
+.footer {
+    background-color: #343a40;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+h1.display-4 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}

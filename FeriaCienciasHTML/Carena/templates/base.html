@@ -1,0 +1,48 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <link rel="stylesheet" href="{% static 'estilos.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feria de Ciencias</title>
+</head>
+<body>
+    <div class="d-flex flex-column min-vh-100">
+        <header class="container-fluid bg-success text-white text-center p-20" style="padding: 2rem;">
+            <h3>Feria de Ciencias</h3>
+            <h6>Estudiantes de 3° año</h6>
+        </header>
+
+        <nav class="navbar navbar-expand-sm bg-success navbar-dark sticky-top mb-4">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/index">Feria</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav">
+                        {% for p in proyectos %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ p.link }}/{{ p.id }}">{{ p.nombre }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <main class="flex-fill">
+            {% block content %}
+            {% endblock %}
+        </main>
+        <footer class="container-fluid bg-success  text-center p-3 text-white mt-4">
+            <h6>Instituto Superior Dr. Carlos María Carena | 2024 | Tecnicatura Superior en Desarrollo de Software </h6>
+        </footer>
+    </div>
+</body>
+</html>
