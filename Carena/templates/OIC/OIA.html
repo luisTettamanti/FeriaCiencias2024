@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+    <style>
+        /* CSS para el marco leve */
+         .articulo-descripcion {
+            border: 1px solid #ddd; /* Marco ligero */
+            padding: 10px; /* Espaciado interno */
+            border-radius: 5px; /* Bordes redondeados */
+            background-color: #f9f9f9; /* Color de fondo */
+            margin-bottom: 10px; /* Espacio entre elementos */
+        }
+
+        .articulo-contenedor {
+            border: 1px solid #ddd; /* Marco ligero */
+            padding: 10px; /* Espaciado interno */
+            border-radius: 5px; /* Bordes redondeados */
+            background-color: #f9f9f9; /* Color de fondo */
+            margin-bottom: 15px; /* Espacio entre artículos */
+        }
+
+        /* Estilo para centrar el título de la sección */
+        .seccion-titulo {
+            text-align: center;
+            color: #007bff; /* Puedes ajustar el color como prefieras */
+            margin-bottom: 20px; /* Espacio debajo del título */
+        }
+    </style>
+    
+    <div id="contenido" class="container">
+        <div class="row mt-4">
+            <div class="col-md-12" id="imagen"
+                 style="background-image: url('{% static seccion.imagen %}');
+                         background-position: center;
+                         height: 300px;
+                         background-size: contain;
+                         background-repeat: no-repeat">
+            </div>
+        </div>
+        
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <h3 class="seccion-titulo">{{ seccion.titulo }}</h3>
+                <div class="seccion-descripcion">{{ seccion.descripcion|safe }}</div>
+            </div>
+        </div>
+        
+        <div class="row mt-4">
+            <div class="col-md-12">
+                {% for a in articulos %}
+                    <div class="articulo-contenedor">
+                        <h4 class="text-primary pb-2">{{ a.titulo }}</h4>
+                        <div class="articulo-descripcion">{{ a.descripcion|safe }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}

@@ -7,33 +7,18 @@
     {% bootstrap_css %}
     {% bootstrap_javascript %}
     <link rel="stylesheet" href="{% static 'estilos.css' %}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton+SC&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feria de Ciencias</title>
-    <style>
-        .anton-sc-regular {
-            font-family: "Anton SC", sans-serif;
-            font-weight: 400;
-            font-style: normal;
-        }
-    </style>
-    {% block style %}
-    {% endblock %}
 </head>
 <body>
     <div class="d-flex flex-column min-vh-100">
-        <header class="container-fluid bg-dark text-white text-center" style="padding-top: 3rem;">
-            <p style="margin-bottom: 0;">Instituto Superior Carlos María Carena</p>
-            <h1 class="anton-sc-regular">Catálogo de Proyectos</h1>
+        <header class="container-fluid bg-dark text-white text-center p-10" style="padding: 2rem;">
+            <h4>Feria de Ciencias</h4>
         </header>
 
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top mb-4">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/index">
-                    <img src="{% static '/img/LogoCarpeta.png' %}" style="width: 30px;")>
-                </a>
+                <a class="navbar-brand" href="/index">Feria</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div id="contenido" class="container">
+    <div class="col-md-12" id="imagen"
+        style="background-image: url('{% static proyecto.imagen %}');
+               background-position: center;
+               height: 300px;
+               background-size: contain;
+               background-repeat: no-repeat">
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <h3 class="text-primary pb-2">{{ proyecto.titulo }}</h3>
+            {{ proyecto.descripcion|safe }}
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center mb-4 flex-wrap" role="group" aria-label="Secciones del proyecto">
+        {% for s in secciones %}
+            <a href="{{ s.link }}/{{ s.id }}" class="btn btn-primary m-2" style="flex: 1 1 200px; text-align: center;">{{ s.titulo }}</a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
