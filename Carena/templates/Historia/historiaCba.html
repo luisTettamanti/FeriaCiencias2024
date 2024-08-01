@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <div id="contenido" class="container-fluid p-0 m-0 vh-100 position-relative overflow-hidden">
+        <!-- Fondo de imagen, dejamos la imagen de Luis?-->
+        <div class="position-absolute w-100 h-100" style="
+            background-image: url('{% static proyecto.imagen %}');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            z-index: -1;">
+        </div>
+        <!-- Navegación (secciones) -->
+        <nav class="navbar navbar-expand-lg navbar-light w-100 position-absolute" style="top: 0; z-index: 1; background: transparent;">
+            <ul class="navbar-nav ml-auto d-flex justify-content-start w-100">
+                {% for s in secciones %}
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{{ s.link }}/{{ s.id }}">{{ s.titulo }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </nav>
+        <!-- Contenido central -->
+        <div class="d-flex align-items-center justify-content-center vh-100 text-center text-white">
+            <div class="p-3 border border-light rounded"style="background-color: rgba(0, 0, 0, 0.8);">
+                <h3 class="text-white pb-2">{{ proyecto.titulo }}</h3>
+                <div>{{ proyecto.descripcion|safe }}</div>
+            </div>
+        </div>
+        </div>
+        <!-- Navegación móvil -->
+        <div class="d-block d-lg-none col-12 text-secondary position-absolute bottom-0 p-3 bg-dark bg-opacity-50">
+            <ul class="list-unstyled mb-0">
+                {% for s in secciones %}
+                    <li class="mb-2"><a class="text-decoration-none text-secondary" href="{{ s.link }}/{{ s.id }}">{{ s.titulo }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <!-- Frase filosófica o breve descripcion del proyeecto -->
+    <div class="row mt-4">
+        <div class="col-md-12 bg-light p-5">
+            <h2 class="text-center">"Villa Dolores. Sus sitios históricos y sus proyectos patrimoniales"</h2>
+        </div>
+    </div>
+{% endblock %}

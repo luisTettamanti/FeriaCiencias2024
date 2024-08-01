@@ -8,4 +8,7 @@ urlpatterns = [
 
     path('ia/proyecto/<int:pk>', views.proyecto, name='proyecto'),
     path('ia/seccion/<int:pk>/', views.seccion, name='seccion'),
+    path('Historia/historiaCba/<int:pk>', views.proyectoHistoria, name='proyectoHistoria'),
+    path('Historia/seccionCba/<int:pk>/', views.seccionHistoria, name='seccionHistoria'),
+    path('Historia/articuloCba/<int:pk>/', views.articuloHistoria, name='articuloHistoria'),
 ]

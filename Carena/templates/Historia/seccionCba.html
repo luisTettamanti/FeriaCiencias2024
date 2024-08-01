@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div id="contenido" class="container my-5">
+    <div class="row">
+        <!-- Sección principal, por cada seccion hay varios articulos -->
+        <div class="col-md-8">
+            <h3 class="text-primary pb-2">{{ seccion.titulo }}</h3>
+            <div>{{ seccion.descripcion|safe }}</div>
+            {% for a in articulos %}
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <h4 class="card-title text-dark">{{ a.titulo }}</h4>
+                    <p class="card-text">{{ a.descripcion|safe }}</p>
+                    
+                    {% with a.artimagen_set.first as imagen %}
+                        {% if imagen %}
+                            <img src="{{ imagen.imagen }}" alt="{{ a.titulo }}" class="card-img-top mb-3">
+                        {% endif %}
+                    {% endwith %}
+                    
+                    {% if a.link %}
+                    {% endif %}
+                    
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Sección con imagen, correcion de una card en la imagen (eliminada) -->
+        <div class="col-md-4">
+            <div class="position-relative">
+                <img src="{% static seccion.imagen %}" alt="Imagen de fondo" class="img-fluid w-100" style="height: 40vh; object-fit: cover;">
+            </div>
+        </div>
+    </div>
+
+    <!-- Fila para contenido adicional, agregamos que? en este sector. -->
+    <div class="row mt-4">
+        <div class="col-md-12 bg-light p-5">
+            <h2 class="text-center">Realizado por Alumnos de Tercer Año de Software</h2>
+            <p class="text-center">Santiago Bringas-Luis Gauna-Facundo López-Juana Hurtado</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
