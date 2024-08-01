@@ -1,14 +1,21 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Forum:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
 <style>
-    .forum-text {
+    body {
         font-family: 'Forum', sans-serif;
     }
 
 </style>
 
 <!-- Sticky navigation bar -->
+<body>
+
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top mb-5">
         <div class="container-fluid">
             <a class="navbar-brand" href="/anarquiagin/proyectoanarquia/3">Anarquía Gin - Home</a>
@@ -48,4 +55,6 @@
             </div>
         </div>
     </div>
+
+</body>
 {% endblock %}
