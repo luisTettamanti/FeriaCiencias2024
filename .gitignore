@@ -1,5 +1,8 @@
 # Entorno virtual
 venv/
+Lib
+Inlcude
+Scripts
 
 # Archivos de configuración locales
 .env
@@ -7,6 +10,9 @@ venv/
 # Archivos compilados de Python
 *.pyc
 __pycache__/
+__pycache__
+.vscode
+db.sqlite
 
 # Configuraciones del IDE (opcional)
 .vscode/
