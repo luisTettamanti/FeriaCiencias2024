@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+    <style>
+        .titulo {
+            color: #77a752;
+        }
+        .subtitulo {
+            background-color: #bbe66b;
+        }
+        #imagen{
+            height: 400px;
+            width: 400px;
+            border-radius: 4px;
+        }
+    </style>
+
+
+    <div id="contenido" class="container-fluid container-lg">
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-7 col-xxl-8">
+                <h5 class="subtitulo"><a class="text-white text-decoration-none" href="{{ seccion.link }}/{{ seccion.id }}">{{ seccion.titulo }}</a></h5>
+                <h4 class="titulo pb-2">{{ articulo.titulo }}</h4>
+                {{ articulo.descripcion|safe }}
+            </div>
+            <div class="col-12 col-md-6 col-lg-5 col-xxl-4 m-xl-1" id="imagen"
+            style="background-image: url('{% static artImagen.imagen %}');
+                    background-position: center;
+                    height: 300px;
+                    background-size: contain;
+                    background-repeat: no-repeat">
+       </div>
+        </div>
+        <div class="row">
+            <div class="col-6 pt-3 text-secondary">
+                <h3 class="titulo">Disciplinas de Interés</h3>
+                <ul class="lista-flechas">
+                {% for s in secciones %}
+                    <li><a class="text-decoration-none text-secondary" href="{{ s.link }}/{{ s.id }}">{{ s.titulo }}</a></li>
+                {% endfor %}
+                </ul>
+            </div>
+            <div class="col-6 pt-3">
+                <h3 class="titulo">Artículos Relacionados</h3>
+                <ul class="lista-flechas">
+                {% for a in articulos %}
+                <li><a class="text-decoration-none text-secondary" href="{{ a.link }}/{{ a.id }}">{{ a.titulo }}</a></li>
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

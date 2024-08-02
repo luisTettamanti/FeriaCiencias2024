@@ -8,6 +8,9 @@ pyvenv.cfg
 # Archivos compilados de Python
 *.pyc
 __pycache__/
+__pycache__
+.vscode
+db.sqlite
 
 # Configuraciones del IDE (opcional)
 .vscode/

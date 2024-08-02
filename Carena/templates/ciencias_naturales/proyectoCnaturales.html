@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+
+    <style>
+        #imagen{
+            transition-property: border, box-shadow;
+            transition-duration: 0.7s;
+            height: 400px;
+            width: 400px;
+            border-radius: 4px;
+        }
+        #imagen:hover{
+            box-shadow: 4px 4px 8px black;
+        }
+        .seccion{
+            transition-property: box-shadow, opacity;
+            transition-duration: 0.7s;
+            opacity: 0.7;
+        }
+        .seccion:hover{
+            box-shadow: 4px 4px 30px -10px black;
+            border-radius: 4px;
+            opacity: 1;
+        }
+        .titulo{
+            background-color: #bbe66b;
+        }
+        .subtitulo {
+            color: #77a752;
+        }
+    </style>
+
+    <div id="contenido" class="container mt-2">
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-7 col-xxl-8">
+                <h5 class="titulo"><a class="text-white text-decoration-none" href="{{ proyecto.link }}/{{ proyecto.id }}">{{ proyecto.nombre }}</a></h5>
+                <h3 class="subtitulo">{{ proyecto.titulo }}</h3>
+                {{ proyecto.descripcion|safe }}
+            </div>
+            <div class="col-12 col-md-6 col-lg-5 col-xxl-4">
+                <div id="imagen"
+                     style="background-image: url('{% static proyecto.imagen %}');
+                             background-position: center;
+                             height: 300px;
+                             background-size: contain;
+                             background-repeat: no-repeat">
+                </div>
+                <div class="d-none d-md-block p-3 mt-3" style="background-color: #bbe66b; width:400px;">
+                    <h5>Disciplinas de Interés</h5>
+                    <hr>
+                    {% for s in secciones %}
+                        <p><a class="text-decoration-none"style="color: #47773d;" href="{{ s.link }}/{{ s.id }}">{{ s.titulo }}</a></p>
+                    {%  endfor %}
+                </div>
+            </div>
+        </div>
+        <!-- una especie de footer -->
+        <div class="row mt-3">
+            <div class="d-block d-md-none col-12 pt-3 text-secondary seccion">
+                <h3 class="text-primary">Secciones de interes</h3>
+                <ul class="lista-flechas">
+                {% for s in secciones %}
+                    <li><a class="text-decoration-none text-secondary" href="{{ s.link }}/{{ s.id }}">{{ s.titulo }}</a></li>
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
