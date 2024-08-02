@@ -12,4 +12,10 @@ urlpatterns = [
     path('Cnaturales/proyecto/<int:pk>/', views.proyectoCnaturales, name='proyectoCnaturales'),
     path('Cnaturales/seccion/<int:pk>/', views.seccionCnaturales, name='seccionCnaturales'),
     path('Cnaturales/articulo/<int:pk>/', views.articuloCnaturales, name='articuloCnaturales'),
+
+    path('impresion3d/proyecto3d/<int:pk>', views.proyecto3d, name='proyecto3d'),
+    path('impresion3d/seccion3d/<int:pk>/', views.seccion3d, name='seccion3d'),
+
+    path('FDL/proyectos/<int:pk>', views.proyecto_fdl, name='proyecto'),
+    path('FDL/seccion/<int:pk>/', views.seccion_fdl, name='seccion'),
 ]

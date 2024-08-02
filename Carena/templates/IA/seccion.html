@@ -1,8 +1,12 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-    <div id="contenido" class="container">
+    <div id="contenido" class="container pt-3">
         <div class="row">
+
+            <!-- AQUI SE CREA CUERPO DE TEXTO DE LAS SECCIONES -->
+            <!-- Coloca el titulo de la seccion, junto con la descripcion -->
+            <!-- Itinera por todos los articulos de esa seccion y coloca sus titulos y descripciones -->
             <div class="col-md-8">
                 <h3 class="text-primary pb-2">{{ seccion.titulo }}</h3>
                 {{ seccion.descripcion|safe }}
@@ -11,6 +15,10 @@
                     {{ a.descripcion|safe }}
                 {% endfor %}
             </div>
+
+            <!-- AQUI SE CREA LA IMAGENEN DE LA SECCION -->
+            <!-- Se coloca la imagen que este cargada en la seccion -->
+            <!-- SI QUISIERAMOS MAS IMAGENES DEBERIAMOS REALIZAR UNA ITINERACION DE LAS LA DB ARTIMAGEN -->
             <div class="col-md-4" id="imagen"
                  style="background-image: url('{% static seccion.imagen %}');
                          background-position: center;
@@ -20,6 +28,10 @@
             </div>
         </div>
         <div class="row">
+
+            <!-- AQUI SE CREA EL MENU PARA IR A SECCIONES -->
+            <!--  -->
+            <!--  -->
             <div class="col-12 pt-3 text-secondary">
                 <ul class="lista-flechas">
                 {% for s in secciones %}

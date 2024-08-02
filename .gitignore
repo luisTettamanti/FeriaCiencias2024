@@ -1,8 +1,5 @@
 # Entorno virtual
 venv/
-Lib
-Inlcude
-Scripts
 pyvenv.cfg
 
 # Archivos de configuración locales
@@ -19,3 +16,6 @@ db.sqlite
 .vscode/
 .idea/
 *.swp
+Scripts/
+# Base de Datos
+db.sqlite3
