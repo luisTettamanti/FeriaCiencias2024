@@ -12,5 +12,4 @@ __pycache__/
 .vscode/
 .idea/
 *.swp
-
 db.sqlite3
