@@ -16,11 +16,12 @@ def proyecto(request, pk):
 
 
 def seccion(request, pk):
+    proyectos = Proyecto.objects.all()
     seccion = Seccion.objects.get(id=pk)
     proyecto = Proyecto.objects.get(id=seccion.idProyecto_id)
-    secciones = Seccion.objects.filter(idProyecto=proyecto)
+    secciones = Seccion.objects.filter(idProyecto_id=proyecto.id)
     articulos = Articulo.objects.filter(idSeccion__titulo__icontains=seccion.titulo)
-    context = {"proyecto": proyecto, "secciones": secciones, "seccion": seccion, "articulos": articulos}
+    context = {"proyectos": proyectos, "secciones": secciones, "seccion": seccion, "articulos": articulos}
     return render(request, "ia/seccion.html", context)
 
 
@@ -50,7 +51,7 @@ def olimpiada(request, pk):
     return render(request, "OIC/OIC.html", context)
 
 
-  def olimpiadaseccion(request, pk):
+def olimpiadaseccion(request, pk):
     proyectos = Proyecto.objects.all()
     secciones = Seccion.objects.all()
     seccion = Seccion.objects.get(id=pk)
