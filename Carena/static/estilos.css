@@ -13,12 +13,10 @@ ul.lista-flechas {
     list-style-type: none; /* Eliminar los bullets predeterminados */
     padding: 0;
 }
-
 ul.lista-flechas li {
     position: relative; /* Necesario para posicionar el pseudo-elemento */
     padding-left: 20px; /* Espacio para el nuevo bullet */
 }
-
 ul.lista-flechas li::before {
     content: '\27BD'; /* Código Unicode para la flecha hacia la derecha */
     position: absolute;

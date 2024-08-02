@@ -8,6 +8,9 @@ urlpatterns = [
 
     path('ia/proyecto/<int:pk>', views.proyecto, name='proyecto'),
     path('ia/seccion/<int:pk>/', views.seccion, name='seccion'),
+
+    path('olimpiada/proyecto/<int:pk>', views.olimpiada, name='olimpiada'),
+    path('olimpiada/seccion/<int:pk>/', views.olimpiadaseccion, name='olimpiadaseccion'),
     
     path('Cnaturales/proyecto/<int:pk>/', views.proyectoCnaturales, name='proyectoCnaturales'),
     path('Cnaturales/seccion/<int:pk>/', views.seccionCnaturales, name='seccionCnaturales'),

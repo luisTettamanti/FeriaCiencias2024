@@ -39,7 +39,24 @@ def seccion3d(request, pk):
     articulos = Articulo.objects.filter(idSeccion__titulo__icontains=seccion.titulo)
     artimagen = ArtImagen.objects.all() #idArticulo__titulo__icontains=articulos.titulo
     context = {"proyectos": proyectos, "secciones": secciones, "seccion": seccion, "articulos": articulos, "artimagen" : artimagen}
-    return render(request, "impresion3d/seccion3d.html", context)
+    return render(request, "impresion3d/seccion3d.html", context)    
+    
+
+def olimpiada(request, pk):
+    proyectos = Proyecto.objects.all()
+    proyecto = Proyecto.objects.get(id=pk)
+    secciones = Seccion.objects.filter(idProyecto__nombre__icontains=proyecto.nombre)
+    context = {"proyecto": proyecto, "proyectos": proyectos, "secciones": secciones}
+    return render(request, "OIC/OIC.html", context)
+
+
+  def olimpiadaseccion(request, pk):
+    proyectos = Proyecto.objects.all()
+    secciones = Seccion.objects.all()
+    seccion = Seccion.objects.get(id=pk)
+    articulos = Articulo.objects.filter(idSeccion__titulo__icontains=seccion.titulo)
+    context = {"proyectos": proyectos, "secciones": secciones, "seccion": seccion, "articulos": articulos}
+    return render(request, "OIC/OIA.html", context)
 
 
 def proyectoCnaturales(request, pk):
