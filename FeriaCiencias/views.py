@@ -44,5 +44,3 @@ def articuloHistoria(request, pk):
     articulos = Articulo.objects.filter(idSeccion__titulo__icontains=seccion.titulo)
     context = {"proyectos": proyectos, "secciones": secciones, "seccion": seccion, "articulos": articulos}
     return render(request, "Historia/articuloCba.html", context)
-
-
