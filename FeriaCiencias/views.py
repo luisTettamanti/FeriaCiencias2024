@@ -16,12 +16,13 @@ def proyecto(request, pk):
 
 
 def seccion(request, pk):
-    proyectos = Proyecto.objects.all()
-    secciones = Seccion.objects.all()
     seccion = Seccion.objects.get(id=pk)
+    proyecto = Proyecto.objects.get(id=seccion.idProyecto_id)
+    secciones = Seccion.objects.filter(idProyecto=proyecto)
     articulos = Articulo.objects.filter(idSeccion__titulo__icontains=seccion.titulo)
-    context = {"proyectos": proyectos, "secciones": secciones, "seccion": seccion, "articulos": articulos}
+    context = {"proyecto": proyecto, "secciones": secciones, "seccion": seccion, "articulos": articulos}
     return render(request, "ia/seccion.html", context)
+
 
 def proyecto3d(request, pk):
     proyectos = Proyecto.objects.all()

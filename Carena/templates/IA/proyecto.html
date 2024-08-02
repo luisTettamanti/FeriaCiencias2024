@@ -1,17 +1,16 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-    <div id="contenido" class="container">
+    <div id="contenido" class="container pt-3">
         <div class="row">
 
             <!-- AQUI SE CREA EL MENU PARA IR A SECCIONES -->
             <!-- Si el menu es menor a lg no se crearan dos columnas, tiene fondo gris -->
             <!-- Por cada seccion itinera y saca los datos para el link y el nombre para mostrar -->
-            <div class="d-none d-lg-block col-lg-2 p-3" style="background-color: lightgray"> 
+            <div class="d-none d-lg-block col-lg-2" style="background-color: lightgray">
                 {% for s in secciones %}
                     <p><a class="text-decoration-none text-dark" href="{{ s.link }}/{{ s.id }}">{{ s.titulo }}</a></p>
                 {%  endfor %}
-
             </div>
 
             <!-- AQUI SE CREA EL BODY -->
