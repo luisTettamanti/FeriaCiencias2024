@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<style type="text/css">
+    body {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        background-color: #FCF8FF;
+    }
+
+    #inicio {
+        height: fit-content;
+        background-color: #F4E9FF;
+        margin-right: 5%;
+        transition: all .5s;
+    }
+
+    #inicio h5 {
+        border-bottom: solid 1px;
+    }
+
+    #inicio:hover {
+        box-shadow: 7px 8px 12px 0px #A3A29B;
+        transform: scale(1.04);
+    }
+
+    #imagen {
+        background-position: center;
+        height: 300px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        transition: all .5s;
+        border-radius: 7px;
+        margin-bottom: 20px;
+    }
+
+    #imagen:hover {
+        box-shadow: 7px 8px 12px 0px #A3A29B;
+        transform: scale(1.04);
+    }
+
+    .link {
+        color: black;
+        text-decoration: none;
+        transition: all .1s;
+        border-radius: 10px;
+    }
+
+    .link:hover {
+        color: #B4CEFF;
+    }
+
+    #sec {
+        list-style: none;
+        background-color: #F2EBFE;
+        transition: all .5s;
+        height: max-content;
+    }
+
+    #sec:hover {
+        transform: scale(1.05);
+    }
+
+    .card {
+        background-color: #dfd8f5;
+        margin: 6px;
+        transition: all .5s;
+    }
+
+    .card:hover {
+        transform: scale(1.02);
+    }
+
+    .sec-button{
+        border:none;
+        border-radius: 7px;
+        padding-inline: 2rem;
+        background-color: #C8C9FF;
+        transition: all .5s;
+    }
+
+    .sec-button:active{
+        transform: scale(0.9);
+    }
+    .ancor{
+        text-decoration: none;
+        
+    }
+</style>
+<div style="margin-top: 50px;">
+    
+
+<div id="contenido" class="container">
+    <div class="row">
+        <div class="col-md-6 text-center" id="inicio">
+            <h5 class="text-dark w-100 text-center">{{ proyecto.nombre }}</h5>
+            <h3 class="text-primary pb-2">{{ proyecto.titulo }}</h3>
+            {{ proyecto.descripcion|safe }}
+        </div>
+
+        <div class="col-md-5">
+            <div id="imagen" style="background-image: url('{% static proyecto.imagen %}');"></div>
+            <h5 class="text-center" style="background-color: #F4E9FF; margin-top: 5px; border-radius: 10px;">Otros proyectos</h5>
+            <ul id="sec">
+                {% for s in proyectos %}
+                <li>
+                    <a class="text-decoration-none text-center link" href="{{ s.link }}/{{ s.id }}">{{ s.nombre }}</a>
+                </li>
+                <div style="height: 5px;"></div>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div style="width: 100%;">
+        <h3 class="text-center" style="background-color: #F4E9FF; margin-top: 20px; border-radius: 10px;">Secciones</h3>
+    </div>
+
+    <div class="card-group" style="height: fit-content;">
+        {% for s in secciones %}
+        <div class="card rounded container-fluid">
+            <!-- <img src="{{ s.imagen }}" class="card-img-top img-fluid rounded" style=" height:75%;" alt="..."> -->
+            <div id="imagen" class="card-img-top img-fluid rounded" style="background-image: url('{% static s.imagen %}');"></div>
+            <div class="card-body text-center">
+                <div class="overflow-auto">
+                <h6 class="card-title" style="height: 2rem;">{{ s.titulo }}</h6>
+                </div>
+                <a href="{{ s.link }}/{{ s.id }}" class="ancor"><button class="sec-button">Visitar</button></a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+</div>
+{% endblock %}

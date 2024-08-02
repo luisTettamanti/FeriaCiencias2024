@@ -13,6 +13,6 @@ __pycache__/
 .vscode/
 .idea/
 *.swp
-
+Scripts/
 # Base de Datos
 db.sqlite3
